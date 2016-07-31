@@ -10,7 +10,7 @@ describe('#download()', () => {
 
   it('downloads a file', () => {
     const w = new streamBuffers.WritableStreamBuffer();
-    return download('https://api.github.com/files/file.txt', w)
+    return download('https://api.github.com/files/file-darwin-amd64.txt', w)
       .then(() => {
         w.getContentsAsString('utf8').should.be.exactly(fileTxt);
       });
@@ -19,7 +19,7 @@ describe('#download()', () => {
   it('calls progress', () => {
     const w = new streamBuffers.WritableStreamBuffer();
     const progress = sinon.spy();
-    return download('https://api.github.com/files/file.txt', w, progress)
+    return download('https://api.github.com/files/file-darwin-amd64.zip', w, progress)
       .then(() => {
         progress.called.should.be.exactly(true);
         progress.firstCall.args.should.deepEqual([0]);
