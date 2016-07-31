@@ -14,7 +14,7 @@
         "browser_download_url": "https://localhost/files/file.zip"
       },
       {
-        "name": "file-windows-amd64.txt",
+        "name": "file-darwin-amd64.txt",
         "browser_download_url": "https://localhost/files/file.txt"
       },
       {
@@ -38,7 +38,7 @@
         "browser_download_url": "https://localhost/files/file.zip"
       },
       {
-        "name": "file-windows-amd64.txt",
+        "name": "file-darwin-amd64.txt",
         "browser_download_url": "https://localhost/files/file.txt"
       },
       {
@@ -62,7 +62,7 @@
         "browser_download_url": "https://localhost/files/file.zip"
       },
       {
-        "name": "file-windows-amd64.txt",
+        "name": "file-darwin-amd64.txt",
         "browser_download_url": "https://localhost/files/file.txt"
       },
       {
