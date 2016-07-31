@@ -85,7 +85,6 @@ downloadRelease(user, repo, outputdir, filterRelease, filterAsset)
 
 ## TODO
 
-- tests
 - other compression formats
 - option to disable unzipping
 - option to download specific release instead of latest?
