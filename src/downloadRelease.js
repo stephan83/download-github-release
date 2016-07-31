@@ -36,8 +36,6 @@ function downloadRelease(user, repo, outputdir, filterRelease = pass, filterAsse
 
         const progress = process.stdout.isTTY ? bar.update.bind(bar) : pass;
 
-        progress(0);
-
         const destf = path.join(outputdir, asset.name);
         const dest = fs.createWriteStream(destf);
 

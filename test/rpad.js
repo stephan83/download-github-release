@@ -1,6 +1,6 @@
 import rpad from '../src/rpad';
 
-describe('#rpad', () => {
+describe('#rpad()', () => {
   it('adds right padding to a string', () => {
     rpad('test', 20).should.be.a.exactly('test                ');
   });
