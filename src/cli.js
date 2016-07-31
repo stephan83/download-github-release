@@ -23,7 +23,7 @@ if (!user || !repo) {
 }
 
 function filterRelease(release) {
-  return release.prerelease === !!commander.prerelease;
+  return release.draft === false && release.prerelease === !!commander.prerelease;
 }
 
 function filterAsset(asset) {

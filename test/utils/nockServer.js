@@ -2,23 +2,22 @@ import fs from 'fs';
 import path from 'path';
 import nock from 'nock';
 
-const fileTxt = fs.readFileSync(path.resolve(__dirname, '../fixtures/file.txt'));
-const fileZip = fs.readFileSync(path.resolve(__dirname, '../fixtures/file.zip'));
+export const releasesJson = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, '../fixtures/releases.json'), 'utf8')
+);
+export const fileTxt = fs.readFileSync(path.resolve(__dirname, '../fixtures/file.txt'), 'utf8');
+export const fileZip = fs.readFileSync(path.resolve(__dirname, '../fixtures/file.zip'));
 
 export default function nockServer() {
-  nock('http://localhost')
+  nock('https://api.github.com')
+    .get('/repos/me/test/releases')
+    .reply(200, releasesJson, { 'Content-Type': 'application/json' })
     .get('/files/file.txt')
-    .reply(302, {}, { Location: 'http://localhost/download/file.txt' });
-
-  nock('http://localhost')
+    .reply(302, {}, { Location: 'https://api.github.com/download/file.txt' })
     .get('/files/file.zip')
-    .reply(302, {}, { Location: 'http://localhost/download/file.zip' });
-
-  nock('http://localhost')
+    .reply(302, {}, { Location: 'https://api.github.com/download/file.zip' })
     .get('/download/file.txt')
-    .reply(200, fileTxt, { 'Content-Length': fileTxt.length });
-
-  nock('http://localhost')
+    .reply(200, fileTxt, { 'Content-Length': fileTxt.length })
     .get('/download/file.zip')
     .reply(200, fileZip, { 'Content-Length': fileZip.length });
 }
