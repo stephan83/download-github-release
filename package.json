@@ -1,0 +1,58 @@
+{
+  "name": "download-github-release",
+  "version": "0.1.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive --require babel-polyfill --require should",
+    "test:cov": "babel-node ./node_modules/isparta/bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive --require should --require should",
+    "lint": "eslint src test",
+    "check": "npm run lint && npm run test",
+    "build:lib": "babel src --out-dir lib",
+    "clean": "rimraf lib coverage",
+    "preversion": "npm run clean && npm run check",
+    "version": "npm run build:lib",
+    "postversion": "git push && git push --tags && npm run clean",
+    "prepublish": "npm run clean && npm run build:lib"
+  },
+  "bin": {
+    "download-github-release": "bin/download-github-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stephan83/download-github-release.git"
+  },
+  "keywords": [
+    "github",
+    "release",
+    "download"
+  ],
+  "author": "Stephan Florquin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stephan83/download-github-release/issues"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "extract-zip": "^1.5.0",
+    "gauge": "^2.6.0",
+    "multi-progress": "^2.0.0",
+    "superagent": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-polyfill": "^6.5.0",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.11.1",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-react": "^5.2.2",
+    "isparta": "^4.0.0",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.5.3",
+    "should": "^8.2.2"
+  }
+}
