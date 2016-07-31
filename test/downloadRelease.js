@@ -3,7 +3,7 @@ import path from 'path';
 import nock from 'nock';
 import tmp from 'tmp';
 import downloadRelease from '../src/downloadRelease';
-import nockServer, { fileZip, fileTxt } from './utils/nockServer';
+import nockServer, { fileTxt } from './utils/nockServer';
 
 describe('#downloadRelease()', () => {
   let tmpobj;
