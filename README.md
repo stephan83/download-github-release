@@ -3,6 +3,7 @@
 A node module to download Github release assets. It will also uncompress zip files.
 
 [![Build Status](https://travis-ci.org/stephan83/download-github-release.svg?branch=master)](https://travis-ci.org/stephan83/download-github-release)
+[![codecov](https://codecov.io/gh/stephan83/download-github-release/branch/master/graph/badge.svg)](https://codecov.io/gh/stephan83/download-github-release)
 [![Build Status](https://david-dm.org/stephan83/download-github-release.svg)](https://david-dm.org/stephan83/download-github-release) 
 
 ```
