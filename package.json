@@ -37,7 +37,7 @@
     "extract-zip": "^1.5.0",
     "gauge": "^2.6.0",
     "multi-progress": "^2.0.0",
-    "superagent": "^2.1.0"
+    "superagent": "^2.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
