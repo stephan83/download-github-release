@@ -1,1 +1,3 @@
-module.exports = require('./downloadRelease');
+import downloadRelease from './downloadRelease';
+
+module.exports = downloadRelease;

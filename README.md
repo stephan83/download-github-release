@@ -78,7 +78,7 @@ function filterAsset(asset) {
 downloadRelease(user, repo, outputdir, filterRelease, filterAsset)
   .then(function() {
     console.log('All done!');
-  });
+  })
   .catch(function(err) {
     console.error(err.message);
   });
