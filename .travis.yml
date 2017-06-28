@@ -9,5 +9,6 @@ install:
   - npm install -g codecov
 
 script:
+  - stty cols 80
   - npm run test:cov
   - codecov
