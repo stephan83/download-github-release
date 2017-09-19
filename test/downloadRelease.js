@@ -3,7 +3,7 @@ import path from 'path';
 import nock from 'nock';
 import tmp from 'tmp';
 import downloadRelease from '../src/downloadRelease';
-import nockServer, { fileTxt } from './utils/nockServer';
+import nockServer, { fileTxt, fileZip } from './utils/nockServer';
 
 describe('#downloadRelease()', () => {
   let tmpobj;
@@ -22,6 +22,29 @@ describe('#downloadRelease()', () => {
       .then(() => {
         fs.readFileSync(path.join(tmpobj.name, '/file/file.txt'), 'utf8')
           .should.be.exactly(fileTxt);
+        fs.readFileSync(path.join(tmpobj.name, '/file-darwin-amd64.txt'), 'utf8')
+          .should.be.exactly(fileTxt);
+      })
+  );
+});
+
+describe('#downloadRelease()', () => {
+  let tmpobj;
+
+  before(() => {
+    nockServer();
+    tmpobj = tmp.dirSync({ unsafeCleanup: true });
+  });
+  after(() => {
+    nock.cleanAll();
+    tmpobj.removeCallback();
+  });
+  
+  it('downloads a release (without unzipping it)', () =>
+    downloadRelease('me', 'test', tmpobj.name, undefined, a => a.name.indexOf('darwin-amd64') >= 0, true)
+      .then(() => {
+        fs.readFileSync(path.join(tmpobj.name, '/file-darwin-amd64.zip')).toString('hex')
+          .should.be.exactly(fileZip.toString('hex'));
         fs.readFileSync(path.join(tmpobj.name, '/file-darwin-amd64.txt'), 'utf8')
           .should.be.exactly(fileTxt);
       })
