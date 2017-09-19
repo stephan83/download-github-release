@@ -36,6 +36,7 @@ Options:
   -V, --version          output the version number
   -p, --prerelease       download prerelease
   -s, --search <regexp>  filter assets name
+  -z, --zipped           don't extract zip files
 ```
 
 ### Example
@@ -62,6 +63,7 @@ var downloadRelease = require('download-github-release');
 var user = 'some user';
 var repo = 'some repo';
 var outputdir = 'some output directory';
+var leaveZipped = false;
 
 // Define a function to filter releases.
 function filterRelease(release) {
@@ -75,7 +77,7 @@ function filterAsset(asset) {
   return asset.name.indexOf('windows') >= 0;
 }
 
-downloadRelease(user, repo, outputdir, filterRelease, filterAsset)
+downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
   .then(function() {
     console.log('All done!');
   })
@@ -87,7 +89,6 @@ downloadRelease(user, repo, outputdir, filterRelease, filterAsset)
 ## TODO
 
 - other compression formats
-- option to disable unzipping
 - option to download specific release instead of latest?
 - option to download source?
 - private repos?

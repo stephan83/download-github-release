@@ -12,7 +12,7 @@ function pass() {
   return true;
 }
 
-function downloadRelease(user, repo, outputdir, filterRelease = pass, filterAsset = pass) {
+function downloadRelease(user, repo, outputdir, filterRelease = pass, filterAsset = pass, leaveZipped = false) {
   const bars = new MultiProgress(process.stdout);
 
   return getReleases(user, repo)
@@ -41,7 +41,7 @@ function downloadRelease(user, repo, outputdir, filterRelease = pass, filterAsse
 
         return download(asset.browser_download_url, dest, progress)
           .then(() => {
-            if (/\.zip$/.exec(destf)) {
+            if (!leaveZipped && /\.zip$/.exec(destf)) {
               return extract(destf, outputdir).then(() => fs.unlinkSync(destf));
             }
 
