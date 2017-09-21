@@ -12,7 +12,10 @@ function pass() {
   return true;
 }
 
-function downloadRelease(user, repo, outputdir, filterRelease = pass, filterAsset = pass, leaveZipped = false) {
+function downloadRelease(
+  user, repo, outputdir,
+  filterRelease = pass, filterAsset = pass, leaveZipped = false
+) {
   const bars = new MultiProgress(process.stdout);
 
   return getReleases(user, repo)

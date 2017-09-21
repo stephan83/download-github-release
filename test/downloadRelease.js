@@ -39,14 +39,15 @@ describe('#downloadRelease()', () => {
     nock.cleanAll();
     tmpobj.removeCallback();
   });
-  
-  it('downloads a release (without unzipping it)', () =>
-    downloadRelease('me', 'test', tmpobj.name, undefined, a => a.name.indexOf('darwin-amd64') >= 0, true)
+
+  it('downloads a release (without unzipping it)', () => {
+    const check = a => a.name.indexOf('darwin-amd64') >= 0;
+    return downloadRelease('me', 'test', tmpobj.name, undefined, check, true)
       .then(() => {
         fs.readFileSync(path.join(tmpobj.name, '/file-darwin-amd64.zip')).toString('hex')
           .should.be.exactly(fileZip.toString('hex'));
         fs.readFileSync(path.join(tmpobj.name, '/file-darwin-amd64.txt'), 'utf8')
           .should.be.exactly(fileTxt);
-      })
-  );
+      });
+  });
 });
