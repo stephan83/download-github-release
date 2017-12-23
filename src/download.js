@@ -1,14 +1,32 @@
 import http from 'http';
 import https from 'https';
+import URL from 'url';
+import packageJson from '../package';
+
+const urlToOptions = (urlString) => {
+  const url = URL.parse(urlString);
+
+  const headers = {
+    Accept: 'application/octet-stream',
+    'User-Agent': packageJson.name,
+  };
+
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
+  }
+
+  return Object.assign({}, url, { headers });
+};
 
 export default function download(url, w, progress = () => {}) {
   return new Promise((resolve, reject) => {
     let protocol = /^https:/.exec(url) ? https : http;
+    const options = urlToOptions(url);
 
     progress(0);
 
     protocol
-      .get(url, res1 => {
+      .get(options, res1 => {
         protocol = /^https:/.exec(res1.headers.location) ? https : http;
 
         protocol

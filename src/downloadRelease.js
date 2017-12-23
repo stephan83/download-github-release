@@ -42,7 +42,7 @@ function downloadRelease(
         const destf = path.join(outputdir, asset.name);
         const dest = fs.createWriteStream(destf);
 
-        return download(asset.browser_download_url, dest, progress)
+        return download(asset.url, dest, progress)
           .then(() => {
             if (!leaveZipped && /\.zip$/.exec(destf)) {
               return extract(destf, outputdir).then(() => fs.unlinkSync(destf));
