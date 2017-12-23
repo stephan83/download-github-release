@@ -47,6 +47,19 @@ Download `electron/electron` assets whose name contains `darwin-x64` to `/tmp`.
 $ download-github-release -s darwin-x64 electron electron /tmp
 ```
 
+If you need to download assets from a private repository, you need to have a github token, which you can create
+[here][github-token]. Then you can use it as a once off:
+
+```
+$ GITHUB_TOKEN=1234 download-github-release -s darwin-x64 electron electron /tmp
+```
+
+or you can add it to your `.bashrc` to store it in the environment permanently:
+
+```bash
+export GITHUB_TOKEN=1234
+```
+
 ## API
 
 ### Installation
@@ -92,3 +105,5 @@ downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
 - option to download specific release instead of latest?
 - option to download source?
 - private repos?
+
+[github-token]: https://github.com/settings/tokens
