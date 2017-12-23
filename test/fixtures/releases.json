@@ -7,19 +7,19 @@
     "assets": [
       {
         "name": "file-darwin-amd64.zip",
-        "browser_download_url": "https://api.github.com/files/file-darwin-amd64.zip"
+        "url": "https://api.github.com/files/file-darwin-amd64.zip"
       },
       {
         "name": "file-windows-amd64.zip",
-        "browser_download_url": "https://api.github.com/files/file-windows-amd64.zip"
+        "url": "https://api.github.com/files/file-windows-amd64.zip"
       },
       {
         "name": "file-darwin-amd64.txt",
-        "browser_download_url": "https://api.github.com/files/file-darwin-amd64.txt"
+        "url": "https://api.github.com/files/file-darwin-amd64.txt"
       },
       {
         "name": "file-windows-amd64.txt",
-        "browser_download_url": "https://api.github.com/files/file-windows-amd64.txt"
+        "url": "https://api.github.com/files/file-windows-amd64.txt"
       }
     ]
   },
@@ -31,19 +31,19 @@
     "assets": [
       {
         "name": "file-darwin-amd64.zip",
-        "browser_download_url": "https://api.github.com/files/file-darwin-amd64.zip"
+        "url": "https://api.github.com/files/file-darwin-amd64.zip"
       },
       {
         "name": "file-windows-amd64.zip",
-        "browser_download_url": "https://api.github.com/files/file-windows-amd64.zip"
+        "url": "https://api.github.com/files/file-windows-amd64.zip"
       },
       {
         "name": "file-darwin-amd64.txt",
-        "browser_download_url": "https://api.github.com/files/file-darwin-amd64.txt"
+        "url": "https://api.github.com/files/file-darwin-amd64.txt"
       },
       {
         "name": "file-windows-amd64.txt",
-        "browser_download_url": "https://api.github.com/files/file-windows-amd64.txt"
+        "url": "https://api.github.com/files/file-windows-amd64.txt"
       }
     ]
   },
@@ -55,19 +55,19 @@
     "assets": [
       {
         "name": "file-darwin-amd64.zip",
-        "browser_download_url": "https://api.github.com/files/file-darwin-amd64.zip"
+        "url": "https://api.github.com/files/file-darwin-amd64.zip"
       },
       {
         "name": "file-windows-amd64.zip",
-        "browser_download_url": "https://api.github.com/files/file-windows-amd64.zip"
+        "url": "https://api.github.com/files/file-windows-amd64.zip"
       },
       {
         "name": "file-darwin-amd64.txt",
-        "browser_download_url": "https://api.github.com/files/file-darwin-amd64.txt"
+        "url": "https://api.github.com/files/file-darwin-amd64.txt"
       },
       {
         "name": "file-windows-amd64.txt",
-        "browser_download_url": "https://api.github.com/files/file-windows-amd64.txt"
+        "url": "https://api.github.com/files/file-windows-amd64.txt"
       }
     ]
   }
