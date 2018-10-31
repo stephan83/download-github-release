@@ -6,8 +6,6 @@ describe('#getReleases()', () => {
   beforeEach(nockServer);
   afterEach(() => nock.cleanAll());
 
-  it('gets the releases', () =>
-    getReleases('me', 'test')
-      .then(body => body.should.deepEqual(releasesJson))
-  );
+  it('gets the releases', () => getReleases('me', 'test')
+    .then(body => body.should.deepEqual(releasesJson)));
 });

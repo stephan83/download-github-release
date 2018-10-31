@@ -1,11 +1,6 @@
-import path from 'path';
-import fs from 'fs';
 import commander from 'commander';
 import downloadRelease from './downloadRelease';
-
-const version = JSON
-  .parse(fs.readFileSync(path.resolve(__dirname, '../package.json')))
-  .version;
+import { version } from '../package.json';
 
 commander
   .version(version)

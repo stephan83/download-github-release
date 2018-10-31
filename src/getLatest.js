@@ -9,7 +9,7 @@ export default function getLatest(releases, filterRelease = pass, filterAsset = 
     return null;
   }
 
-  for (let i = 0; i < filtered.length; i++) {
+  for (let i = 0; i < filtered.length; i += 1) {
     const release = filtered[i];
     const assets = release.assets.filter(filterAsset);
 

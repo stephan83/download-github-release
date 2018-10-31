@@ -16,7 +16,7 @@ declare namespace downloadRelease {
      */
     export interface GithubRelease {
         name: string;
-        browser_download_url: string;
+        url: string;
         content_type: string;
         size: number;
     }

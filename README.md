@@ -2,9 +2,9 @@
 
 A node module to download Github release assets. It will also uncompress zip files.
 
-[![Build Status](https://travis-ci.org/stephan83/download-github-release.svg?branch=master)](https://travis-ci.org/stephan83/download-github-release)
-[![codecov](https://codecov.io/gh/stephan83/download-github-release/branch/master/graph/badge.svg)](https://codecov.io/gh/stephan83/download-github-release)
-[![Build Status](https://david-dm.org/stephan83/download-github-release.svg)](https://david-dm.org/stephan83/download-github-release) 
+[![Build Status](https://travis-ci.org/terascope/download-github-release.svg?branch=master)](https://travis-ci.org/terascope/download-github-release)
+[![codecov](https://codecov.io/gh/terascope/download-github-release/branch/master/graph/badge.svg)](https://codecov.io/gh/terascope/download-github-release)
+[![Build Status](https://david-dm.org/terascope/download-github-release.svg)](https://david-dm.org/terascope/download-github-release) 
 
 ```
 $ download-github-release -s darwin-x64 electron electron
@@ -22,7 +22,9 @@ This is useful for instance if you have a project that depends on binaries relea
 ### Installation
 
 ```bash
-npm install -g download-github-release
+npm install -g @terascope/download-github-release
+# or
+yarn global add @terascope/download-github-release
 ```
 
 ### Usage
@@ -47,23 +49,28 @@ Download `electron/electron` assets whose name contains `darwin-x64` to `/tmp`.
 $ download-github-release -s darwin-x64 electron electron /tmp
 ```
 
+If you need to download assets from a private repository or you need to avoid rate limits, you can see set the environment variable `GITHUB_TOKEN`. To generate a token go to your Github [settings](https://github.com/settings/tokens) and a token with `public_repo` or `repo` (for private repos) permissions.
+
 ## API
 
 ### Installation
 
 ```bash
-npm install --save download-github-release
+npm install --save @terascope/download-github-release
+# or
+yarn add @terascope/download-github-release
 ```
 
 ### Usage
 
 ```javascript
-var downloadRelease = require('download-github-release');
+const downloadRelease = require('@terascope/download-github-release');
 
-var user = 'some user';
-var repo = 'some repo';
-var outputdir = 'some output directory';
-var leaveZipped = false;
+const user = 'some user';
+const repo = 'some repo';
+const outputdir = 'some output directory';
+const leaveZipped = false;
+const disableLogging = false;
 
 // Define a function to filter releases.
 function filterRelease(release) {
@@ -77,7 +84,7 @@ function filterAsset(asset) {
   return asset.name.indexOf('windows') >= 0;
 }
 
-downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
+downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped, disableLogging)
   .then(function() {
     console.log('All done!');
   })
@@ -91,4 +98,3 @@ downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped)
 - other compression formats
 - option to download specific release instead of latest?
 - option to download source?
-- private repos?

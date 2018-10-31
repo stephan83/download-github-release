@@ -13,14 +13,19 @@ function pass() {
 }
 
 function downloadRelease(
-  user, repo, outputdir,
-  filterRelease = pass, filterAsset = pass, leaveZipped = false
+  user,
+  repo,
+  outputdir,
+  filterRelease = pass,
+  filterAsset = pass,
+  leaveZipped = false,
+  disableLogging = false,
 ) {
   const bars = new MultiProgress(process.stdout);
 
   return getReleases(user, repo)
     .then(releases => getLatest(releases, filterRelease, filterAsset))
-    .then(release => {
+    .then((release) => {
       if (!release) {
         throw new Error(
           `could not find a release for ${user}/${repo} (${os.platform()} ${os.arch()})`
@@ -29,7 +34,7 @@ function downloadRelease(
 
       console.log(`Downloading ${user}/${repo}@${release.tag_name}...`);
 
-      const promises = release.assets.map(asset => {
+      const promises = release.assets.map((asset) => {
         const bar = bars.newBar(`${rpad(asset.name, 24)} :bar :etas`, {
           complete: '▇',
           incomplete: '-',
@@ -37,12 +42,12 @@ function downloadRelease(
           total: 100
         });
 
-        const progress = process.stdout.isTTY ? bar.update.bind(bar) : pass;
+        const progress = process.stdout.isTTY && !disableLogging ? bar.update.bind(bar) : pass;
 
         const destf = path.join(outputdir, asset.name);
         const dest = fs.createWriteStream(destf);
 
-        return download(asset.browser_download_url, dest, progress)
+        return download(asset.url, dest, progress)
           .then(() => {
             if (!leaveZipped && /\.zip$/.exec(destf)) {
               return extract(destf, outputdir).then(() => fs.unlinkSync(destf));

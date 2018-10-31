@@ -17,15 +17,13 @@ describe('#downloadRelease()', () => {
     tmpobj.removeCallback();
   });
 
-  it('downloads a release', () =>
-    downloadRelease('me', 'test', tmpobj.name, undefined, a => a.name.indexOf('darwin-amd64') >= 0)
-      .then(() => {
-        fs.readFileSync(path.join(tmpobj.name, '/file/file.txt'), 'utf8')
-          .should.be.exactly(fileTxt);
-        fs.readFileSync(path.join(tmpobj.name, '/file-darwin-amd64.txt'), 'utf8')
-          .should.be.exactly(fileTxt);
-      })
-  );
+  it('downloads a release', () => downloadRelease('me', 'test', tmpobj.name, undefined, a => a.name.indexOf('darwin-amd64') >= 0)
+    .then(() => {
+      fs.readFileSync(path.join(tmpobj.name, '/file/file.txt'), 'utf8')
+        .should.be.exactly(fileTxt);
+      fs.readFileSync(path.join(tmpobj.name, '/file-darwin-amd64.txt'), 'utf8')
+        .should.be.exactly(fileTxt);
+    }));
 });
 
 describe('#downloadRelease()', () => {
