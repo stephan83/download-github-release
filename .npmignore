@@ -4,3 +4,4 @@ src
 test
 tmp
 coverage
+.vscode

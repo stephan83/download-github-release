@@ -16,7 +16,7 @@
     "preversion": "npm run clean && npm run check",
     "version": "npm run build:lib",
     "postversion": "git push && git push --tags && npm run clean",
-    "prepublish": "npm run clean && npm run build:lib"
+    "prepublishOnly": "npm run clean && npm run build:lib"
   },
   "bin": {
     "download-github-release": "bin/download-github-release"
