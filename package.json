@@ -7,7 +7,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --recursive --require babel-polyfill --require should",
+    "test": "mocha --require babel-polyfill --compilers js:babel-register --require should --recursive",
     "test:cov": "babel-node ./node_modules/isparta/bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive --require should --require should",
     "lint": "eslint src test",
     "check": "npm run lint && npm run test",
@@ -43,11 +43,10 @@
     "superagent": "^4.0.0-beta.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
