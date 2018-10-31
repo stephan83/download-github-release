@@ -1,4 +1,4 @@
-// Type definitions for download-github-release 0.3
+// Type definitions for fetch-github-release 0.3
 // Definitions by: Borek Bernard <https://github.com/borekb>
 
 declare function downloadRelease(

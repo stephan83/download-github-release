@@ -1,5 +1,5 @@
 {
-  "name": "@terascope/download-github-release",
+  "name": "@terascope/fetch-github-release",
   "publishConfig": {
     "access": "public"
   },
@@ -19,11 +19,11 @@
     "prepublishOnly": "npm run clean && npm run build:lib"
   },
   "bin": {
-    "download-github-release": "bin/download-github-release"
+    "fetch-github-release": "bin/fetch-github-release"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stephan83/download-github-release.git"
+    "url": "https://github.com/stephan83/fetch-github-release.git"
   },
   "keywords": [
     "github",
@@ -33,7 +33,7 @@
   "author": "Stephan Florquin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stephan83/download-github-release/issues"
+    "url": "https://github.com/stephan83/fetch-github-release/issues"
   },
   "dependencies": {
     "commander": "^2.9.0",

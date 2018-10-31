@@ -2,12 +2,12 @@
 
 A node module to download Github release assets. It will also uncompress zip files.
 
-[![Build Status](https://travis-ci.org/terascope/download-github-release.svg?branch=master)](https://travis-ci.org/terascope/download-github-release)
-[![codecov](https://codecov.io/gh/terascope/download-github-release/branch/master/graph/badge.svg)](https://codecov.io/gh/terascope/download-github-release)
-[![Build Status](https://david-dm.org/terascope/download-github-release.svg)](https://david-dm.org/terascope/download-github-release) 
+[![Build Status](https://travis-ci.org/terascope/fetch-github-release.svg?branch=master)](https://travis-ci.org/terascope/fetch-github-release)
+[![codecov](https://codecov.io/gh/terascope/fetch-github-release/branch/master/graph/badge.svg)](https://codecov.io/gh/terascope/fetch-github-release)
+[![Build Status](https://david-dm.org/terascope/fetch-github-release.svg)](https://david-dm.org/terascope/fetch-github-release) 
 
 ```
-$ download-github-release -s darwin-x64 electron electron
+$ fetch-github-release -s darwin-x64 electron electron
 Downloading electron/electron@v1.3.1...
 electron-v1.3.1-darwi... ▇▇▇▇▇---------------------------------------------------- 662.8s
 electron-v1.3.1-darwi... ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇--------- 13.4s
@@ -22,15 +22,15 @@ This is useful for instance if you have a project that depends on binaries relea
 ### Installation
 
 ```bash
-npm install -g @terascope/download-github-release
+npm install -g @terascope/fetch-github-release
 # or
-yarn global add @terascope/download-github-release
+yarn global add @terascope/fetch-github-release
 ```
 
 ### Usage
 
 ```
-Usage: download-github-release [options] <user> <repo> [outputdir]
+Usage: fetch-github-release [options] <user> <repo> [outputdir]
 
 Options:
 
@@ -46,7 +46,7 @@ Options:
 Download `electron/electron` assets whose name contains `darwin-x64` to `/tmp`.
 
 ```
-$ download-github-release -s darwin-x64 electron electron /tmp
+$ fetch-github-release -s darwin-x64 electron electron /tmp
 ```
 
 If you need to download assets from a private repository or you need to avoid rate limits, you can see set the environment variable `GITHUB_TOKEN`. To generate a token go to your Github [settings](https://github.com/settings/tokens) and a token with `public_repo` or `repo` (for private repos) permissions.
@@ -56,15 +56,15 @@ If you need to download assets from a private repository or you need to avoid ra
 ### Installation
 
 ```bash
-npm install --save @terascope/download-github-release
+npm install --save @terascope/fetch-github-release
 # or
-yarn add @terascope/download-github-release
+yarn add @terascope/fetch-github-release
 ```
 
 ### Usage
 
 ```javascript
-const downloadRelease = require('@terascope/download-github-release');
+const downloadRelease = require('@terascope/fetch-github-release');
 
 const user = 'some user';
 const repo = 'some repo';
