@@ -4,7 +4,7 @@ A node module to download Github release assets. It will also uncompress zip fil
 
 [![Build Status](https://travis-ci.org/terascope/fetch-github-release.svg?branch=master)](https://travis-ci.org/terascope/fetch-github-release)
 [![codecov](https://codecov.io/gh/terascope/fetch-github-release/branch/master/graph/badge.svg)](https://codecov.io/gh/terascope/fetch-github-release)
-[![Build Status](https://david-dm.org/terascope/fetch-github-release.svg)](https://david-dm.org/terascope/fetch-github-release) 
+[![Build Status](https://david-dm.org/terascope/fetch-github-release.svg)](https://david-dm.org/terascope/fetch-github-release)
 
 ```
 $ fetch-github-release -s darwin-x64 electron electron
@@ -92,6 +92,12 @@ downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped, 
     console.error(err.message);
   });
 ```
+
+#### Authenticating with GitHub Personal Access Token
+
+If you encounter a situation where you are making too many requests and GitHub
+rate limits you, you can use an authentication token by setting `GITHUB_TOKEN`
+to your token in the calling environment.
 
 ## TODO
 
