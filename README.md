@@ -49,7 +49,7 @@ Download `electron/electron` assets whose name contains `darwin-x64` to `/tmp`.
 $ fetch-github-release -s darwin-x64 electron electron /tmp
 ```
 
-If you need to download assets from a private repository or you need to avoid rate limits, you can see set the environment variable `GITHUB_TOKEN`. To generate a token go to your Github [settings](https://github.com/settings/tokens) and a token with `public_repo` or `repo` (for private repos) permissions.
+If you need to download assets from a private repository or you need to avoid rate limits, you can set the environment variable `GITHUB_TOKEN`. To generate a token go to your Github [settings](https://github.com/settings/tokens) and a token with `public_repo` or `repo` (for private repos) permissions.
 
 ## API
 
@@ -93,11 +93,8 @@ downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped, 
   });
 ```
 
-#### Authenticating with GitHub Personal Access Token
-
-If you encounter a situation where you are making too many requests and GitHub
-rate limits you, you can use an authentication token by setting `GITHUB_TOKEN`
-to your token in the calling environment.
+`downloadRelease` returns an array of file paths to all of the files downloaded
+if called with `leaveZipped = true`.
 
 ## TODO
 

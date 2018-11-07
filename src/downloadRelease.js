@@ -53,7 +53,7 @@ function downloadRelease(
               return extract(destf, outputdir).then(() => fs.unlinkSync(destf));
             }
 
-            return null;
+            return destf;
           });
       });
 
