@@ -7,6 +7,7 @@ commander
   .arguments('<user> <repo> [outputdir]')
   .option('-p, --prerelease', 'download prerelease')
   .option('-s, --search <regexp>', 'filter assets name')
+  .option('-q, --quiet', 'don\'t log to console')
   .option('-z, --zipped', 'don\'t extract zip files')
   .parse(process.argv);
 
@@ -30,5 +31,6 @@ function filterAsset(asset) {
   return new RegExp(commander.search).exec(asset.name);
 }
 
-downloadRelease(user, repo, outputdir, filterRelease, filterAsset, !!commander.zipped)
+downloadRelease(user, repo, outputdir, filterRelease, filterAsset,
+  !!commander.zipped, !!commander.quiet)
   .catch(err => console.error(err.message));

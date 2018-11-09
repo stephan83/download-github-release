@@ -1,6 +1,7 @@
 # Download Github Release
 
-A node module to download Github release assets. It will also uncompress zip files.
+A node module to download Github release assets. It will also uncompress zip
+files and skip downloading if a file already exists.
 
 [![Build Status](https://travis-ci.org/terascope/fetch-github-release.svg?branch=master)](https://travis-ci.org/terascope/fetch-github-release)
 [![codecov](https://codecov.io/gh/terascope/fetch-github-release/branch/master/graph/badge.svg)](https://codecov.io/gh/terascope/fetch-github-release)
@@ -15,7 +16,8 @@ electron-v1.3.1-darwi... ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇�
 ffmpeg-v1.3.1-darwin-... ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 0.0s
 ```
 
-This is useful for instance if you have a project that depends on binaries released via Github.
+This is useful for instance if you have a project that depends on binaries
+released via Github.
 
 ## Command line
 
@@ -33,12 +35,12 @@ yarn global add @terascope/fetch-github-release
 Usage: fetch-github-release [options] <user> <repo> [outputdir]
 
 Options:
-
-  -h, --help             output usage information
   -V, --version          output the version number
   -p, --prerelease       download prerelease
   -s, --search <regexp>  filter assets name
+  -q, --quiet            don't log to console
   -z, --zipped           don't extract zip files
+  -h, --help             output usage information
 ```
 
 ### Example
