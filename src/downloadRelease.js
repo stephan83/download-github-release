@@ -32,29 +32,36 @@ function downloadRelease(
         );
       }
 
-      console.log(`Downloading ${user}/${repo}@${release.tag_name}...`);
+      if (!disableLogging) {
+        console.log(`Downloading ${user}/${repo}@${release.tag_name}...`);
+      }
 
       const promises = release.assets.map((asset) => {
-        const bar = bars.newBar(`${rpad(asset.name, 24)} :bar :etas`, {
-          complete: '▇',
-          incomplete: '-',
-          width: process.stdout.columns - 36,
-          total: 100
-        });
+        let progress;
 
-        const progress = process.stdout.isTTY && !disableLogging ? bar.update.bind(bar) : pass;
+        if (process.stdout.isTTY && !disableLogging) {
+          const bar = bars.newBar(`${rpad(asset.name, 24)} :bar :etas`, {
+            complete: '▇',
+            incomplete: '-',
+            width: process.stdout.columns - 36,
+            total: 100
+          });
+          progress = bar.update.bind(bar);
+        }
 
         const destf = path.join(outputdir, asset.name);
-        const dest = fs.createWriteStream(destf);
+        if (!fs.existsSync(destf)) {
+          const dest = fs.createWriteStream(destf);
 
-        return download(asset.url, dest, progress)
-          .then(() => {
-            if (!leaveZipped && /\.zip$/.exec(destf)) {
-              return extract(destf, outputdir).then(() => fs.unlinkSync(destf));
-            }
-
-            return destf;
-          });
+          return download(asset.url, dest, progress)
+            .then(() => {
+              if (!leaveZipped && /\.zip$/.exec(destf)) {
+                return extract(destf, outputdir).then(() => fs.unlinkSync(destf));
+              }
+              return destf;
+            });
+        }
+        return destf;
       });
 
       return Promise.all(promises);
