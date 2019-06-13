@@ -3,11 +3,16 @@ language: node_js
 node_js:
   - "8"
 
+branches:
+  only:
+  - master
+  - /^v\d+\.\d+\.\d+/
+
 install:
   - npm install
-  - yarn global add codecov
 
 script:
   - stty cols 80
   - npm run test:cov
-  - codecov
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
