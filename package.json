@@ -54,7 +54,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "isparta": "^4.0.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.1.4",
     "nock": "^10.0.1",
     "rimraf": "^2.5.3",
     "should": "^13.2.3",
