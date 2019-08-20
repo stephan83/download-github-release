@@ -56,7 +56,7 @@
     "isparta": "^4.0.0",
     "mocha": "^6.1.4",
     "nock": "^10.0.1",
-    "rimraf": "^2.5.3",
+    "rimraf": "^3.0.0",
     "should": "^13.2.3",
     "sinon": "^7.1.1",
     "stream-buffers": "^3.0.0",
