@@ -7,7 +7,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha --require babel-polyfill --compilers js:babel-register --require should --recursive",
+    "test": "mocha --require babel-polyfill --require babel-core/register --require should --recursive",
     "test:cov": "babel-node ./node_modules/isparta/bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive --require should --require should",
     "lint": "eslint src test",
     "check": "npm run lint && npm run test",
