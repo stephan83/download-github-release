@@ -36,8 +36,8 @@
     "url": "https://github.com/terascope/fetch-github-release/issues"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
     "commander": "^5.1.0",
+    "core-js": "^3.6.5",
     "extract-zip": "^2.0.1",
     "gauge": "^3.0.0",
     "got": "^11.4.0",
@@ -47,6 +47,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "^7.10.4",
