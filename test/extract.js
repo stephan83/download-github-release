@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import tmp from 'tmp';
-import extract from '../src/extract';
+import extract from 'extract-zip';
 import { fileZip, fileTxt } from './utils/nockServer';
 
 describe('#extract()', () => {
@@ -13,7 +13,7 @@ describe('#extract()', () => {
   it('extracts a zip file', () => {
     const fileZipPath = path.join(tmpobj.name, 'file.zip');
     fs.writeFileSync(fileZipPath, fileZip);
-    return extract(fileZipPath, tmpobj.name)
+    return extract(fileZipPath, { dir: tmpobj.name })
       .then(() => {
         fs.readFileSync(path.join(tmpobj.name, '/file/file.txt'), 'utf8')
           .should.be.exactly(fileTxt);
