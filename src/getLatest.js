@@ -3,6 +3,10 @@ function pass() {
 }
 
 export default function getLatest(releases, filterRelease = pass, filterAsset = pass) {
+  if (!releases) {
+    return null;
+  }
+  
   const filtered = releases.filter(filterRelease);
 
   if (!filtered.length) {
