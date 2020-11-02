@@ -6,7 +6,7 @@ export default function getLatest(releases, filterRelease = pass, filterAsset = 
   if (!releases) {
     return null;
   }
-  
+
   const filtered = releases.filter(filterRelease);
 
   if (!filtered.length) {
