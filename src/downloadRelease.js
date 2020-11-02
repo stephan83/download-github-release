@@ -1,7 +1,6 @@
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import Progress from 'progress';
 import extract from 'extract-zip';
 import getReleases from './getReleases';
 import getLatest from './getLatest';
@@ -12,7 +11,7 @@ function pass() {
   return true;
 }
 
-const MultiProgress = require('multi-progress')(Progress);
+const MultiProgress = require('multi-progress');
 
 async function downloadRelease(
   user,
@@ -33,7 +32,7 @@ async function downloadRelease(
     );
   }
   if (!disableLogging) {
-    console.log(`Downloading ${user}/${repo}@${release.tag_name}...`);
+    console.error(`Downloading ${user}/${repo}@${release.tag_name}...`);
   }
   const promises = release.assets.map(async (asset) => {
     let progress;
