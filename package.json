@@ -36,7 +36,7 @@
     "url": "https://github.com/terascope/fetch-github-release/issues"
   },
   "dependencies": {
-    "commander": "^6.0.0",
+    "commander": "^7.0.0",
     "core-js": "^3.6.5",
     "extract-zip": "^2.0.1",
     "gauge": "^3.0.0",
