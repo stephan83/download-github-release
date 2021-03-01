@@ -83,7 +83,7 @@ function filterRelease(release) {
 // Define a function to filter assets.
 function filterAsset(asset) {
   // Select assets that contain the string 'windows'.
-  return asset.name.indexOf('windows') >= 0;
+  return asset.name.includes('windows');
 }
 
 downloadRelease(user, repo, outputdir, filterRelease, filterAsset, leaveZipped, disableLogging)
