@@ -9,7 +9,7 @@ declare function downloadRelease(
     filterAsset?: (asset: downloadRelease.GithubRelease ) => boolean,
     leaveZipped?: boolean,
     disableLogging?: boolean,
-): Promise<void>;
+): Promise<string[]>;
 
 declare namespace downloadRelease {
     /**
