@@ -16,7 +16,7 @@ const MultiProgress = require('multi-progress');
 async function downloadRelease(
   user,
   repo,
-  outputdir,
+  outputDir,
   filterRelease = pass,
   filterAsset = pass,
   leaveZipped = false,
@@ -28,7 +28,7 @@ async function downloadRelease(
   const release = getLatest(releases, filterRelease, filterAsset);
   if (!release) {
     throw new Error(
-      `could not find a release for ${user}/${repo} (${os.platform()} ${os.arch()})`
+      `Could not find a release for ${user}/${repo} (${os.platform()} ${os.arch()})`
     );
   }
   if (!disableLogging) {
@@ -47,14 +47,14 @@ async function downloadRelease(
       progress = bar.update.bind(bar);
     }
 
-    const destf = path.join(outputdir, asset.name);
+    const destf = path.join(outputDir, asset.name);
     if (!fs.existsSync(destf)) {
       const dest = fs.createWriteStream(destf);
 
       await download(asset.url, dest, progress);
       if (!leaveZipped && /\.zip$/.exec(destf)) {
         await extract(destf, {
-          dir: outputdir
+          dir: outputDir
         });
         fs.unlinkSync(destf);
       }

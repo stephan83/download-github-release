@@ -3,9 +3,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.7.5",
-  "description": "",
+  "version": "0.7.6",
+  "description": "Download a specific release from github",
   "main": "lib/index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "mocha --require @babel/polyfill --require @babel/register --require should --recursive",
     "test:cov": "babel-node ./node_modules/isparta/bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive --require should --require should",
