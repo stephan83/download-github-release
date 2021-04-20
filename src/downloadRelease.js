@@ -16,7 +16,7 @@ const MultiProgress = require('multi-progress');
 async function downloadRelease(
   user,
   repo,
-  outputDir,
+  _outputDir,
   filterRelease = pass,
   filterAsset = pass,
   leaveZipped = false,
@@ -45,6 +45,15 @@ async function downloadRelease(
         total: 100
       });
       progress = bar.update.bind(bar);
+    }
+
+    const outputDir = path.isAbsolute(_outputDir) ? _outputDir : path.resolve(_outputDir);
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir);
+    }
+
+    if (!fs.statSync(outputDir).isDirectory()) {
+      throw new Error(`Output path "${outputDir}" must be a directory`);
     }
 
     const destf = path.join(outputDir, asset.name);
