@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.7.7",
+  "version": "0.7.9",
   "description": "Download a specific release from github",
   "main": "lib/index.js",
   "typings": "index.d.ts",
