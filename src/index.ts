@@ -1,3 +1,3 @@
-import { downloadRelease } from './downloadRelease';
+import { downloadRelease } from './downloadRelease.js';
 
 export { downloadRelease };
